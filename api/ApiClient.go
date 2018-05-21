@@ -23,6 +23,14 @@ func (s ApiClient) Post(endpoint string, contentType string, jsonMap map[string]
 	return http.Post(s.basePath+endpoint, contentType, bytes.NewBuffer(jsonValue))
 }
 
+func (s ApiClient) PostJsonString(endpoint string, contentType string, jsonMap string) (*http.Response, error) {
+	return http.Post(s.basePath+endpoint, contentType, bytes.NewBuffer([]byte(jsonMap)))
+}
+
+func (s ApiClient) PostJsonByte(endpoint string, contentType string, jsonMap []byte) (*http.Response, error) {
+	return http.Post(s.basePath+endpoint, contentType, bytes.NewBuffer(jsonMap))
+}
+
 // func callWS(name string, lastHash string, pvkey string, pbkey string, messageType string) string {
 // 	fmt.Println("Starting the application...")
 // 	jsonData := map[string]string{

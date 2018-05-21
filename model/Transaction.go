@@ -1,11 +1,11 @@
 package model
 
 type Transaction struct {
-	TimeStamp string `json:"height"`
-	Signature string `json:"height"`
-	Fee       string `json:"height"`
-	Type      string `json:"height"`
-	Deadlne   string `json:"height"`
-	Version   string `json:"height"`
-	Signer    string `json:"height"`
+	TimeStamp string `json:"timeStamp"`
+	Signature string `json:"signature"`
+	Fee       string `json:"fee"`
+	Type      string `json:"type"`
+	Deadlne   string `json:"deadline"`
+	Version   string `json:"version"`
+	Signer    string `json:"signer"`
 }

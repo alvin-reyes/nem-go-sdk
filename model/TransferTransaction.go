@@ -1,16 +1,16 @@
 package model
 
 type TransferTransaction struct {
-	TimeStamp string
-	Signature string
-	Fee       string
-	Type      string
-	Deadlne   string
-	Version   string
-	Signer    string
+	TimeStamp string `json:"timeStamp"`
+	Signature string `json:"signature"`
+	Fee       string `json:"fee"`
+	Type      string `json:"type"`
+	Deadlne   string `json:"deadline"`
+	Version   string `json:"version"`
+	Signer    string `json:"signer"`
 
-	Recipient   string
-	Message     string
-	Payload     string
-	MessageType string
+	Recipient   string `json:"recipient"`
+	Message     string `json:"message"`
+	Payload     string `json:"payload"`
+	MessageType string `json:"messageType"`
 }

@@ -1,7 +1,7 @@
 package model
 
 type TransactionMetaData struct {
-	Height string
-	Id     int
-	Hash   Hash
+	Height string `json:"height"`
+	Id     int    `json:"id"`
+	Hash   Hash   `json:"hash"`
 }

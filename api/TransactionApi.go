@@ -1,6 +1,13 @@
 package api
 
-var accountIncomingTransaction = "/account/transfers/incoming"
-var accountOutgoingTransaction = "/account/transfers/outgoing"
-var accountAllTransaction = "/account/transfers/all"
-var accountUnconfirmedTransaction = "/account/unconfirmedTransactions"
+type TransactionApi struct {
+	BasePath  string
+	ApiClient *ApiClient
+}
+
+var transactionPrepareAnnounce = "/transaction/prepare-announce"
+
+func NewTransactionApi(basePath string) *TransactionApi {
+	apiClient := NewApiClient(basePath)
+	return &TransactionApi{basePath, apiClient}
+}

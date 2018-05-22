@@ -1,8 +1,8 @@
 package model
 
 type MosaicDefinition struct {
-	Creator string
+	Creator string `json:"creator"`
 	Id      struct {
-		NamespaceId string
-	}
+		NamespaceId string `json:"namespaceId"`
+	} `json:"id"`
 }

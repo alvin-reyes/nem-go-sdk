@@ -1,5 +1,5 @@
 package model
 
 type BlockChainScore struct {
-	Score string
+	Score string `json:"score"`
 }

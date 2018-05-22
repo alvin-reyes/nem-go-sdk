@@ -3,8 +3,6 @@ package api
 import (
 	"fmt"
 	"testing"
-
-	"github.com/nem-toolchain/nem-toolchain/pkg/keypair"
 )
 
 func TestGetAccount(t *testing.T) {
@@ -16,6 +14,4 @@ func TestGetAccount(t *testing.T) {
 func TestGenerateAccount(t *testing.T) {
 	a := NewAccountApi("http://alice2.nem.ninja:7890/")
 	t.Log(a.AccountGenerate())
-
-	keypair.Gen()
 }

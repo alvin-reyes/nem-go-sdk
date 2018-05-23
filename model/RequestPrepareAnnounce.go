@@ -12,7 +12,7 @@ type RequestPrepareAnnounce struct {
 			Payload string `json:"payload"`
 			Type    int    `json:"type"`
 		} `json:"message"`
-		Version string `json:"version"`
+		Version int64  `json:"version"`
 		Signer  string `json:"signer"`
 	} `json:"transaction"`
 	PrivateKey string `json:"privateKey"`

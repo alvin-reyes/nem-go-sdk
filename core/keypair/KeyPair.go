@@ -1,0 +1,88 @@
+package keypair
+
+import (
+	"bytes"
+	"crypto/rand"
+	"encoding/hex"
+	"fmt"
+	"io"
+
+	"github.com/nem-sdk-go/core"
+	"golang.org/x/crypto/ed25519"
+	"golang.org/x/crypto/ripemd160"
+	"golang.org/x/crypto/sha3"
+)
+
+const (
+	// PrivateBytes stores the private key length in bytes.
+	PrivateBytes = 32
+	// PublicBytes stores the public key length in bytes.
+	PublicBytes = 32
+)
+
+type KeyPair struct {
+	Private []byte
+	Public  []byte
+}
+
+// Gen generates a new private/public key pair using entropy from crypto rand.
+func Gen() KeyPair {
+	seed := make([]byte, PrivateBytes)
+	_, err := io.ReadFull(rand.Reader, seed[:])
+	if err != nil {
+		panic(err)
+	}
+	pair, _ := FromSeed(seed)
+	return pair
+}
+
+// FromSeed generates a new private/public key pair using specified private key.
+func FromSeed(seed []byte) (KeyPair, error) {
+	if len(seed) != PrivateBytes {
+		return KeyPair{},
+			fmt.Errorf("insufficient seed length, should be %d, but got %d", PrivateBytes, len(seed))
+	}
+	pub, pr, err := ed25519.GenerateKey(bytes.NewReader(seed))
+	if err != nil {
+		panic(err)
+	}
+	return KeyPair{pr[:PrivateBytes], pub}, nil
+}
+
+// Address converts a key pair into corresponding address string representation.
+
+func (pair KeyPair) Address(chain core.Chain) Address {
+	h := sha3.NewLegacyKeccak256().Sum(pair.Public)
+
+	r := ripemd160.New()
+	_, err := r.Write(h[:])
+	if err != nil {
+		panic(err)
+	}
+
+	b := append([]byte{chain.ID}, r.Sum(nil)...)
+
+	h = sha3.NewLegacyKeccak256().Sum(b)
+	a := append(b, h[:4]...)
+
+	addr := Address{}
+	copy(addr[:], a[:])
+	return addr
+}
+
+// HexToPrivBytes converts hex string into private key bytes.
+func HexToPrivBytes(h string) ([]byte, error) {
+	return hexToKey(h, PrivateBytes)
+}
+
+// hexToKey converts hex encoded string into private/public sized bytes.
+func hexToKey(h string, keySize int) ([]byte, error) {
+	keyBytes, err := hex.DecodeString(h)
+	if err != nil {
+		return keyBytes, err
+	} else if len(keyBytes) != keySize {
+		return keyBytes, fmt.Errorf("invalid key length (expected: %v, received: %v)", keySize, len(h))
+	}
+
+	return keyBytes, nil
+}

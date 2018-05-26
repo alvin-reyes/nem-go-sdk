@@ -9,30 +9,20 @@ Features:
 + Blockchain Lookup
 + Node Information Lookup
 + Namespace and Mosaics Lookup
-+ Initiate and Announce a Transfer Transaction
++ Address Generator (with Vanity check)
 
 To follow:
 
++ CLI Capability
++ Initiated and Sign offline Transactions
++ Initiate and Announce a Transfer Transaction
 + Initiate and Announce a Multisignature Transaction 
 + Initiate and Announce a CoSignature
 + Namespace/Mosaic Initiate/Modification Transaction
 + Websocket Monitoring
 
-
-## Usage
-
-### As a Library
-
-The source can either be used as a library or a standalone CLI.
-
-    go get github.com/nem-go-sdk
-
-### As a CLI
-
-    nemsdk account --generate
-    nemsdk transaction --lookup --publicKey=<>
-
 ## Contribution
+The library/tool is far from finish. Would appreciate if we can have a collective contribution to the library.
 
 ## Author
-Alvin P. Reyes
+BramBear

@@ -11,3 +11,8 @@ type ImportanceTransferTransaction struct {
 	Version       int    `json:"version"`
 	Signer        string `json:"signer"`
 }
+
+type RequestPrepareAnnounceImportanceTransferTransaction struct {
+	ImportanceTransferTransaction ImportanceTransferTransaction `json:"transaction"`
+	PrivateKey                    string                        `json:"privateKey"`
+}

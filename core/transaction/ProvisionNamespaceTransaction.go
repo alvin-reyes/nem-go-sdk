@@ -13,3 +13,8 @@ type ProvisionNamespaceTransaction struct {
 	NewPart       string `json:"newPart"`
 	Parent        string `json:"parent"`
 }
+
+type RequestPrepareAnnounceProvisionNamespaceTransaction struct {
+	ProvisionNamespaceTransaction ProvisionNamespaceTransaction `json:"transaction"`
+	PrivateKey                    string                        `json:"privateKey"`
+}

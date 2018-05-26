@@ -8,6 +8,11 @@ type MultisigTransaction struct {
 	Deadline   int                            `json:"deadline"`
 	Version    uint                           `json:"version"`
 	Signer     string                         `json:"signer"`
-	OtherTrans string                         `json:"otherHash"`
+	OtherTrans TransferTransactionV2          `json:"otherHash"`
 	Signatures []MultisigSignatureTransaction `json:"signatures"`
+}
+
+type RequestPrepareAnnounceMultisigTransaction struct {
+	MultisigTransaction MultisigTransaction `json:"transaction"`
+	PrivateKey string `json:"privateKey"`
 }

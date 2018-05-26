@@ -13,6 +13,7 @@ type AccountApi struct {
 	ApiClient *ApiClient
 }
 
+//	account
 var accountGenerate = "/account/generate"
 var accountGet = "/account/get"
 var accountGetFromPublicKey = "/account/get/from-public-key"
@@ -50,12 +51,16 @@ func NewAccountApi(basePath string) *AccountApi {
 
 func (s AccountApi) AccountGenerate() (*model.KeyPairViewModel, error) {
 	response, err := s.ApiClient.Get(accountGenerate)
+
+	if err != nil 
+		return 
+		
 	responseModel := &model.KeyPairViewModel{}
 	data, _ := ioutil.ReadAll(response.Body)
 	jsonResult := string(data)
 	unmarshalErr := json.Unmarshal([]byte(jsonResult), responseModel)
 	if unmarshalErr != nil {
-		log.Fatal(unmarshalErr)
+		return
 	}
 	return responseModel, err
 

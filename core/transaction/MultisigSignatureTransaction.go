@@ -13,3 +13,8 @@ type MultisigSignatureTransaction struct {
 	} `json:"otherHash"`
 	OtherAccount string `json:"otherAccount"`
 }
+
+type RequestPrepareAnnounceMultisigSignatureTransaction struct {
+	MultisigSignatureTransaction MultisigSignatureTransaction `json:"transaction"`
+	PrivateKey                   string                       `json:"privateKey"`
+}

@@ -5,7 +5,7 @@ import (
 	"io/ioutil"
 	"log"
 
-	model "github.com/nem-sdk-go/model"
+	"github.com/nem-sdk-go/model"
 )
 
 type AccountApi struct {

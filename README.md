@@ -15,14 +15,11 @@ To follow:
 
 + CLI Capability
 + Initiated and Sign offline Transactions
-+ Initiate and Announce a Transfer Transaction
-+ Initiate and Announce a Multisignature Transaction 
-+ Initiate and Announce a CoSignature
-+ Namespace/Mosaic Initiate/Modification Transaction
++ Initiate and Announce transactions
 + Websocket Monitoring
 
 ## Contribution
-The library/tool is far from finish. Would appreciate if we can have a collective contribution to the library.
+The library/tool is far from finish. 
 
 ## Author
 BramBear

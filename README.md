@@ -19,7 +19,10 @@ To follow:
 + Websocket Monitoring
 
 ## Contribution
-The library/tool is far from finish. We need a few contributors to finish some of the tasks at hand. Please check the Issues tab for more details (bounty is Negotiable)
+The library/tool is far from finish. We need a few contributors to finish some of the tasks at hand. Please check the Issues tab for more details.
+
+## Reference
+Some of the features, code and functions are directly referenced from https://nem-toolchain.github.io/. 
 
 ## Author
 BramBear (Alvin Reyes)

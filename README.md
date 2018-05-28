@@ -19,7 +19,7 @@ To follow:
 + Websocket Monitoring
 
 ## Contribution
-The library/tool is far from finish. 
+The library/tool is far from finish. We need a few contributors to finish some of the tasks at hand. Please check the Issues tab for more details (bounty is Negotiable)
 
 ## Author
-BramBear
+BramBear (Alvin Reyes)

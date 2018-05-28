@@ -16,3 +16,4 @@ func StartSearch(chain core.Chain, selector Selector, ch chan<- keypair.KeyPair)
 		return
 	}
 }
+	

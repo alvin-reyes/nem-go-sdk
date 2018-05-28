@@ -20,3 +20,5 @@ type RequestPrepareAnnounceMultisigAggregateModificationTransaction struct {
 	MultisigAggregateModificationTransaction MultisigAggregateModificationTransaction `json:"transaction"`
 	PrivateKey string `json:"privateKey"`
 }
+
+

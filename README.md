@@ -29,13 +29,13 @@ import (
 
 func main() {
 
-	//	create the instance.
-	newNisConnection := nembc.NewNisConnection("http://104.128.226.60:7890/",nembc.Testnet)
+    //	create the instance.
+    newNisConnection := nembc.NewNisConnection("http://104.128.226.60:7890/",nembc.Testnet)
 	
-	//	Get account information
-	newNisConnection.AccountApi.AccountGet("TC5KTUA4TTSSCSFQX2DOMCI2BUEHO2CSE4ZCITPM")
+    //	Get account information
+    newNisConnection.AccountApi.AccountGet("TC5KTUA4TTSSCSFQX2DOMCI2BUEHO2CSE4ZCITPM")
 
-	//	Get namespace and mosaic information
+    //	Get namespace and mosaic information
     newNisConnection.NamespaceMosaicsApi.GetNamespaceRootPage("roopage")
     
     //  Blockchain Api endpoint

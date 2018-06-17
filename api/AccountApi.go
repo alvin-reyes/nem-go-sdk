@@ -1,11 +1,10 @@
 package api
 
 import (
+	"github.com/nem-sdk-go/model"
 	"encoding/json"
 	"io/ioutil"
 	"log"
-
-	"github.com/nem-sdk-go/model"
 )
 
 type AccountApi struct {
@@ -51,16 +50,13 @@ func NewAccountApi(basePath string) *AccountApi {
 
 func (s AccountApi) AccountGenerate() (*model.KeyPairViewModel, error) {
 	response, err := s.ApiClient.Get(accountGenerate)
-
-	if err != nil 
-		return 
 		
 	responseModel := &model.KeyPairViewModel{}
 	data, _ := ioutil.ReadAll(response.Body)
 	jsonResult := string(data)
 	unmarshalErr := json.Unmarshal([]byte(jsonResult), responseModel)
 	if unmarshalErr != nil {
-		return
+		log.Fatal(unmarshalErr)
 	}
 	return responseModel, err
 

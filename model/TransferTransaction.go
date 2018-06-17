@@ -160,7 +160,7 @@ func (s RequestPrepareAnnounceTransferTransactionV2) SerializeV2() ([]byte, []by
 	binary.LittleEndian.PutUint32(lengthOfPublicKeyByte, 0x0020)
 
 	//	PublicKey Signer
-	psig, _ := strconv.Atoi(s.TransferTransactionV1.Recipient)
+	psig, _ := strconv.Atoi(s.TransferTransactionV2.Recipient)
 	binary.LittleEndian.PutUint32(publicKeySigner, uint32(psig))
 
 	//	Fee

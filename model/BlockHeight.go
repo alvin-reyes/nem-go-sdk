@@ -1,5 +1,5 @@
 package model
 
 type BlockHeight struct {
-	Height string `json:"height"`
+  Height uint `json:"height"`
 }
